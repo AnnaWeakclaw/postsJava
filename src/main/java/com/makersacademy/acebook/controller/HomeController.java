@@ -29,6 +29,16 @@ public class HomeController {
 
 		return "greeting";
 	}
+	@RequestMapping(value = "/posts")
+	@GetMapping("/posts")
+	public String getPosts(Model model) {
+		Iterable<Post> allPosts = postRepository.findAll();
+		System.out.println(allPosts);
+		Post first = allPosts.iterator().next();
+		model.addAttribute("allOfPosts", allPosts);
+		model.addAttribute("myFirstPost", first);
+		return "displayPosts";
+	}
 
 
 

@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Posts</title>
+</head>
+<body>
+
+My page, Extract list of posts from our database
+
+<p th:text="'My posts: ' + ${allOfPosts} " />
+<p>List of posts</p>
+<div th:each="post: ${allOfPosts}">
+
+    <div th:text="${post.content}"></div>
+</div>
+</body>
+</html>
