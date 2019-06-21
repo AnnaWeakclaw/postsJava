@@ -7,6 +7,10 @@
 <body>
     <p>Success!</p>
     <p>Go <a href="/post">Click here to go back to the form</a></p>
-
+<p>All posts with new posts</p>
+<div th:each="post: ${database}">
+<!--/*@thymesVar id="content" type=""*/-->
+<div th:text="${post.content}"></div>
+</div>
 </body>
 </html>

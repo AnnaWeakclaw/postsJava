@@ -32,14 +32,17 @@ public class HomeController {
 		return "postForm";
 	}
 
-	@GetMapping("/post")
+	@GetMapping("/postzz")
 	public String post(Model model) {
 		model.addAttribute("post", new PostForm("change me"));
 		return "postForm";
 	}
 
-	@PostMapping("/post")
-	public String post(@ModelAttribute Post post) {
+	@PostMapping
+	public String post(@ModelAttribute PostForm post, Model model) {
+		Post newPost = new Post(post.getContent());
+		postRepository.save(newPost);
+		model.addAttribute("database", postRepository.findAll());
 		return "result";
 	}
 
